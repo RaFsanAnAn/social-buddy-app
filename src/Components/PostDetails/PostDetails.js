@@ -1,5 +1,5 @@
 import React ,{ useState, useEffect }from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 
 const PostDetails = () => {
@@ -30,10 +30,19 @@ const PostDetails = () => {
         color : 'white',
         
     }
-
+    const btnStyle = {
+        color: 'white',
+        padding: '10px 20px',
+        backgroundColor: '#990033',
+        float:'right'
+    }
     return (
         <div style = {divStyle}>
         <h1> <u>Post No:</u>  {post.id}</h1>
+        <Link to={`/home`} style={{ textDecoration: 'none' }}>
+        <button style={btnStyle}>Go Back to Home</button>
+        </Link>
+     
             <h2><u>Title:</u>  {post.title} </h2>
             <h3>{post.body} </h3> <br/>
             <h2 style={{textAlign:'center'}}><u>Comments</u></h2>

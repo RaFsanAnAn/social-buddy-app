@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import IconButton from '@material-ui/core/IconButton';
+import { Avatar } from '@material-ui/core';
 const Comments = (props) => {
     const { name, email, body, id } = props.comments;
     const userStyle = {
@@ -15,6 +16,8 @@ const Comments = (props) => {
         padding: '20px',
         margin: '20px',
         borderRadius: '20px',
+        display: 'flex',
+
     }
 
     const useStyles = makeStyles({
@@ -25,14 +28,16 @@ const Comments = (props) => {
             backgroundColor: 'black'
         },
     });
+    let imgURL = `https://randomuser.me/api/portraits/men/${id}.jpg`;
     const classes = useStyles();
 
     return (
         <div style={userStyle}>
-            <div >
+            <div style={{ marginTop: '15px' }}>
 
+                <Avatar src={imgURL} />
             </div>
-            <div >
+            <div style={{ width: '90%' }}>
                 <Card className={classes.root}>
                     <CardActionArea>
                         <CardContent>
@@ -48,10 +53,10 @@ const Comments = (props) => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <IconButton aria-label="add to favorites" color='danger'>
+                        <IconButton aria-label="add to favorites" color='primary'>
                             <FavoriteIcon />
                         </IconButton>
-                        <IconButton aria-label="share" color='success'>
+                        <IconButton aria-label="share" color='secondary'>
                             <ShareIcon />
                         </IconButton>
                     </CardActions>
